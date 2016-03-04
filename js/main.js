@@ -8,5 +8,5 @@
 		 $.when(window.app.service.getForecast(19,72)).then(function(response){
 		 	$('body').text(JSON.stringify(response));
 		 });
-	},0.1);
+	},10);
 })(window);
