@@ -1,0 +1,25 @@
+{
+  "name": "my_weather_app",
+  "version": "1.0.0",
+  "description": "My weather app extension for browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/aneesh_25/my_weather_app.git"
+  },
+  "author": "Aneesh Kallarakkal",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/aneesh_25/my_weather_app#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-stream": "0.0.2",
+    "merge-stream": "^1.0.0",
+    "run-sequence": "^1.1.5"
+  }
+}
