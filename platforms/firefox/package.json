@@ -1,6 +1,6 @@
 {
 	"name" : "my_weather_app",
-	"id" : "aneeshjk13@yahoo.inia.com",
+	"id" : "aneeshjsdasd@yaho.com",
 	"license": "MIT",
 	"description": "My Weather App",
 	"contributors": [],
@@ -8,9 +8,7 @@
 	"url": "",
 	"name": "my_weather_app",
 	"version": "1.0.0",
-	"lib": "data",
 	"main": "data/main",
-	"data": "data",
 	"fullName": "My Weather App",
 	"permissions": {
 		"cross-domain-content": [

@@ -46,7 +46,7 @@ gulp.task('build-firefox-extension',function(){
 		copy('images/**/*','build/firefox/data/images'),
 		copy('images/icon.png','build/firefox'), // to set icon
 		copy('js/*.js','build/firefox/data/js'),
-		copy('vendor/**/*.*','build/firefox/data/libs'),
+		copy('vendor/**/*.*','build/firefox/data/vendor'),
 		copy('html/*.html','build/firefox/data/html')
 		);
 });

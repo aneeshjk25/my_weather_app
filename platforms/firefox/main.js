@@ -1,5 +1,6 @@
 var pageMod = require('sdk/page-mod');
-var buttons = require('sdk/ui/button/action');
+var toggles = require('sdk/ui/button/toggle');
+var panels = require("sdk/panel");
 
 pageMod.PageMod({
 	include	: '*',
@@ -8,7 +9,8 @@ pageMod.PageMod({
 	//},
 	attachTo : ['top','existing'],
 	contentScriptFile: [
-		"./libs/jquery/jquery-1.12.1.js",
+		"./vendor/jquery/jquery-1.12.1.js",
+		"./vendor/underscore/underscore.js",
 		"./js/browser.js",
 		"./js/services.js",
 		"./js/main.js"
@@ -27,12 +29,27 @@ pageMod.PageMod({
 	}
 });
 
-	var button = buttons.ActionButton({
-	  id: "toolbar-link",
-	  label: "Weather",
-	  icon:  "./images/icon.png" ,
-	  onClick: 	function handleClick(state) {
-		console.log(arguments," arguments in handleClick");
-	}});
+var button = toggles.ToggleButton({
+  id: "toolbar-link",
+  label: "Weather",
+  icon:  "./images/icon.png" ,
+  onChange : handleChange
+  });
 
 
+var panel = panels.Panel({
+  contentURL: "./html/index.html",
+  onHide: handleHide
+});
+
+function handleChange(state) {
+  if (state.checked) {
+    panel.show({
+      position: button
+    });
+  }
+}
+
+function handleHide() {
+  button.state('window', {checked: false});
+}
