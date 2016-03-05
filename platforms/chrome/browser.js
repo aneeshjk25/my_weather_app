@@ -16,10 +16,19 @@
 	function getAllEvents(callback){
 		return chrome.alarms.getAll(callback);
 	}
+
+	function setIcon(path){
+		chrome.browserAction.setIcon( { path : path });
+	}
+	function setTitle(title){
+		chrome.browserAction.setTitle( { title : title });
+	}
 	app.browser = {
 		name : 'chrome',
 		setEvent : setEvent,
 		clearAllEvents : clearAllEvents,
-		getAllEvents  : getAllEvents
+		getAllEvents  : getAllEvents,
+		setIcon		: setIcon,
+		setTitle	: setTitle
 	};
 })(window);

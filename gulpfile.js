@@ -31,7 +31,7 @@ gulp.task('build-chrome-extension',function(){
 		copy('platforms/chrome/*.js','build/chrome/js'),
 		copy('build/css/*.css','build/chrome/css'),
 		copy('platforms/chrome/manifest.json','build/chrome'),
-		copy('images/*.png','build/chrome/images'),
+		copy('images/**/*','build/chrome/images'),
 		copy('js/*.js','build/chrome/js'),
 		copy('vendor/**/*.*','build/chrome/vendor'),
 		copy('html/*.html','build/chrome/html')

@@ -1,12 +1,14 @@
 (function(window){
+	var browser = window.app.browser,
+		service = window.app.service;
 
-	window.app.browser.getAllEvents(function(events){
-		console.log(events);
-	});
 	//window.app.browser.clearAllEvents();
-	window.app.browser.setEvent(function(){
-		 $.when(window.app.service.getForecast(19,72)).then(function(response){
-		 	$('body').text(JSON.stringify(response));
+	browser.setEvent(function(){
+		 $.when(service.getForecast(Math.random() * 90 ,Math.random() * 180 )).then(function(response){
+		 	if(Array.isArray(response.weather) && response.weather.length > 0 ){
+				browser.setIcon('images/weather_icons/' + response.weather[0].icon + '.png');
+				browser.setTitle(response.weather[0].description);
+		 	}
 		 });
-	},10);
+	},0.1);
 })(window);
