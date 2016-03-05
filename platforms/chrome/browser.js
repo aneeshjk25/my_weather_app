@@ -23,12 +23,16 @@
 	function setTitle(title){
 		chrome.browserAction.setTitle( { title : title });
 	}
+	function getTemplatePath(){
+		return '../html/';
+	}
 	app.browser = {
 		name : 'chrome',
 		setEvent : setEvent,
 		clearAllEvents : clearAllEvents,
 		getAllEvents  : getAllEvents,
 		setIcon		: setIcon,
-		setTitle	: setTitle
+		setTitle	: setTitle,
+		getTemplatePath : getTemplatePath
 	};
 })(window);
