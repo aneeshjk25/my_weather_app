@@ -23,9 +23,23 @@
 	function setTitle(title){
 		chrome.browserAction.setTitle( { title : title });
 	}
-	function getTemplatePath(){
-		return '../html/';
+	function getLocation(callback){
+		return navigator.geolocation.getCurrentPosition(callback);
 	}
+	function processCoords(location){
+		setLocalStorage('latitude',location.coords.latitude);
+		setLocalStorage('longitude',location.coords.longitude);
+	}
+
+	// localStorage 
+	function setLocalStorage(key,data){
+		localStorage[key] = data;
+	}
+	function getLocalStorage(key){
+		return localStorage[key];
+	}
+	// end local storage 
+	// 
 	app.browser = {
 		name : 'chrome',
 		setEvent : setEvent,
@@ -33,6 +47,9 @@
 		getAllEvents  : getAllEvents,
 		setIcon		: setIcon,
 		setTitle	: setTitle,
-		getTemplatePath : getTemplatePath
+		getLocation : getLocation,
+		processCoords: processCoords,
+		getLocalStorage : getLocalStorage,
+		setLocalStorage : setLocalStorage
 	};
 })(window);
