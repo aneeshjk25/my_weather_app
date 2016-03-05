@@ -43,7 +43,8 @@ gulp.task('build-firefox-extension',function(){
 		copy('build/css/*.css','build/firefox/data/css'),
 		copy('platforms/firefox/package.json','build/firefox'),
 		copy('platforms/firefox/main.js','build/firefox/data'),
-		copy('images/*.png','build/firefox/data/images'),
+		copy('images/**/*','build/firefox/data/images'),
+		copy('images/icon.png','build/firefox'), // to set icon
 		copy('js/*.js','build/firefox/data/js'),
 		copy('vendor/**/*.*','build/firefox/data/libs'),
 		copy('html/*.html','build/firefox/data/html')
