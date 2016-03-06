@@ -1,4 +1,62 @@
-$bg : #FAFAFA;
+$bg : #00539f;
+$front : white;
+$container-width : 360px;
+$container-height : 420px;
+$half-height : $container-height / 2;
+$row-width : 100%;
+$h1 : 48px;
 body{
-	background-color : $bg;
+	background : $bg;
+	color : $front;
+	margin : 0;
+}
+.container{
+	width : $container-width;
+	height : $container-height;
+}
+.half-height{
+	height : $half-height;
+}
+.row{
+	width : $row-width;
+}
+.up{
+	background : $front;
+	color : $bg;
+	opacity : 0.4;
+}
+h1{
+	font-size : $h1;
+}
+h1 + img{
+	transform:scale(2,2);
+	transform-origin:0 0;
+}
+%grid{
+		float: left ;
+		min-height: 1px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    	position: relative;
+}
+@for $i from 1 through 12 {
+	.col-md-#{$i} {
+		@extend %grid;
+		width: percentage($i / 12) ;
+	}
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.txt-center{
+	text-align : center;
 }

@@ -15,5 +15,5 @@
   "default_popup": "html/index.html"
   },
   "manifest_version": 2,
-  "permissions": [ "alarms", "storage", "geolocation", "*://*.openweathermap.org/*"]
+  "permissions": [ "alarms", "storage", "geolocation", "*://*.forecast.io/*"]
 }

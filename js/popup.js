@@ -8,7 +8,9 @@
 		location.then(function(location){
 			$.when(service.getForecast(location.latitude,location.longitude)).then(function(response){
 				forecast = response;
-			 	$('body').html(compiled({ weather : JSON.stringify(forecast) }));
+				debugger;
+				console.log(response);
+			 	$('body').html(compiled(forecast));
 
 			});
 		});

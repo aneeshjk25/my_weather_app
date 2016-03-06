@@ -5,9 +5,9 @@
 	function showWeather(latitude,longitude){
 		browser.setEvent(function(){
 			$.when(service.getForecast(latitude ,longitude)).then(function(response){
-			 	if(Array.isArray(response.weather) && response.weather.length > 0 ){
-					browser.setIcon('images/weather_icons/' + response.weather[0].icon + '.png');
-					browser.setTitle(response.weather[0].description);
+			 	if(response.currently){
+					browser.setIcon('images/new_weather_icons/' + response.currently.icon + '.png');
+					browser.setTitle(response.currently.summary);
 			 	}
 			 });
 		},0.1);

@@ -2,13 +2,22 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<script type="text/template" id="template">
-		<div><%= weather %> </div>
+		<div class="container">
+			<div class="row up half-height">
+					<h1 class="txt-center"><%= currently.temperature %></h1>
+					<img src="../images/new_weather_icons/<%= currently.icon %>.png"/>
+			</div>
+			<div>
+				This will be second
+			</div>
+		</div>
 	</script>
 	<!-- build:js -->
 	<!-- endbuild -->
 </head>
 <body>
-helloasd
+content is loading
 </body>
 </html>
