@@ -27,8 +27,7 @@
 		return navigator.geolocation.getCurrentPosition(callback);
 	}
 	function processCoords(location){
-		setLocalStorage('latitude',location.coords.latitude);
-		setLocalStorage('longitude',location.coords.longitude);
+		setLocalStorage('location',JSON.stringify(location));
 	}
 
 	// localStorage 

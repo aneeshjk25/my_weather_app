@@ -4,7 +4,8 @@ var gulp 	= require('gulp'),
 	sass	= require('gulp-sass'),
 	concat 	= require('gulp-concat'),
 	runSeq  = require('run-sequence'),
-	shell	= require('gulp-shell');
+	shell	= require('gulp-shell'),
+	htmlreplace = require('gulp-html-replace');
 
 
 function copy( source , destination ){
@@ -34,7 +35,11 @@ gulp.task('build-chrome-extension',function(){
 		copy('images/**/*','build/chrome/images'),
 		copy('js/*.js','build/chrome/js'),
 		copy('vendor/**/*.*','build/chrome/vendor'),
-		copy('html/*.html','build/chrome/html')
+		//copy('html/*.html','build/chrome/html')
+		gulp.src('html/index.html').pipe(htmlreplace({ js : ['../vendor/jquery/jquery-1.12.1.js',
+			'../vendor/underscore/underscore.js', '../js/browser.js' , '../js/services.js',
+			'../js/location.js','../js/popup.js']}))
+			.pipe(gulp.dest('build/chrome/html'))
 		);
 });
 gulp.task('build-firefox-extension',function(){
@@ -48,7 +53,9 @@ gulp.task('build-firefox-extension',function(){
 		copy('js/*.js','build/firefox/data/js'),
 		copy('platforms/firefox/location.js','build/firefox/data/js'),
 		copy('vendor/**/*.*','build/firefox/data/vendor'),
-		copy('html/*.html','build/firefox/data/html')
+		//copy('html/*.html','build/firefox/data/html')
+		gulp.src('html/index.html').pipe(htmlreplace({ js : [] }))
+			.pipe(gulp.dest('build/firefox/data/html'))		
 		);
 });
 gulp.task('build-firefox',function(){
