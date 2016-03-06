@@ -1,6 +1,7 @@
 var pageMod = require('sdk/page-mod');
 var toggles = require('sdk/ui/button/toggle');
 var panels = require("sdk/panel");
+var ss = require("sdk/simple-storage");
 
 pageMod.PageMod({
 	include	: '*',
@@ -13,6 +14,7 @@ pageMod.PageMod({
 		"./vendor/underscore/underscore.js",
 		"./js/browser.js",
 		"./js/services.js",
+		"./js/location.js",
 		"./js/main.js"
 	],
 	contentStyleFile: [
@@ -25,6 +27,12 @@ pageMod.PageMod({
 		});
 		worker.port.on("titleChange",function(title){
 			button.label = title;
+		});
+		worker.port.on('location',function(location){
+			ss.storage.location = JSON.stringify(location);
+		});
+		worker.port.on('getStorage',function(key){
+			worker.port.emit('storageResponse',ss.storage[key]);
 		});
 	}
 });
@@ -39,7 +47,18 @@ var button = toggles.ToggleButton({
 
 var panel = panels.Panel({
   contentURL: "./html/index.html",
-  onHide: handleHide
+  onHide: handleHide,
+  	contentScriptFile: [
+		"./vendor/jquery/jquery-1.12.1.js",
+		"./vendor/underscore/underscore.js",
+		"./js/services.js",
+		"./js/location.js",
+		"./js/popup.js"
+	],
+});
+
+panel.port.on('getStorage',function(key){
+	panel.port.emit('storageResponse',ss.storage[key]);
 });
 
 function handleChange(state) {

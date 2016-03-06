@@ -12,18 +12,12 @@
 			 });
 		},0.1);
 	}
-
 	function getLocation(){
-		var latitude = browser.getLocalStorage('latitude');
-		var longitude = browser.getLocalStorage('longitude');
-		if(latitude && longitude){
-			showWeather(latitude,longitude);
-		}else{
-			$.when(browser.getLocation(function(location){
-				browser.processCoords(location);
-				showWeather(location.coords.latitude,location.coords.longitude);
-			}));
-		}
+		var location = getLocationObject();
+		location.then(function(location){
+			showWeather(location.latitude,location.longitude);
+			browser.processCoords(location);
+		});
 	}
 	getLocation();
 })(window);

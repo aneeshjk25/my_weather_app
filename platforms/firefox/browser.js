@@ -27,12 +27,20 @@
 		self.port.emit('titleChange',title);
 	}
 
+	function getLocation(callback){
+		return navigator.geolocation.getCurrentPosition(callback);
+	}
+	function processCoords(location){
+		self.port.emit('location',location);
+	}
 	app.browser = {
 		name : 'firefox',
 		setEvent : setEvent,
 		clearAllEvents : clearAllEvents,
 		getAllEvents  : getAllEvents,
 		setIcon		: setIcon,
-		setTitle	: setTitle
+		setTitle	: setTitle,
+		getLocation : getLocation,
+		processCoords: processCoords
 	};
 })(window);
