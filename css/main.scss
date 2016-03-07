@@ -2,13 +2,16 @@ $bg : #00539f;
 $front : white;
 $container-width : 360px;
 $container-height : 420px;
-$half-height : $container-height / 2;
+$half-height : 250px;
 $row-width : 100%;
 $h1 : 48px;
 body{
 	background : $bg;
-	color : $front;
+	color : $bg;
 	margin : 0;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 .container{
 	width : $container-width;
@@ -16,21 +19,29 @@ body{
 }
 .half-height{
 	height : $half-height;
+	border : 5px solid $bg;
 }
 .row{
 	width : $row-width;
 }
-.up{
+.half-height,.small-blocks > div {
+	border-radius : 10px;
 	background : $front;
 	color : $bg;
-	opacity : 0.4;
+}
+.small-blocks div{
+	height : $container-height / 3.5;
+	border : 2px solid $bg;
+	p {
+		font-size : 11px;
+	}
 }
 h1{
 	font-size : $h1;
+	margin : 0
 }
 h1 + img{
-	transform:scale(2,2);
-	transform-origin:0 0;
+	width : 128px;
 }
 %grid{
 		float: left ;
@@ -59,4 +70,8 @@ h1 + img{
 
 .txt-center{
 	text-align : center;
+}
+.center-image{
+	margin : 0 auto;
+	display : block;
 }

@@ -6,11 +6,20 @@
 	<script type="text/template" id="template">
 		<div class="container">
 			<div class="row up half-height">
-					<h1 class="txt-center"><%= currently.temperature %></h1>
-					<img src="../images/new_weather_icons/<%= currently.icon %>.png"/>
+					<h1 class="txt-center" ><%= currently.temperature %>&#8451;</h1>
+					<img class="center-image" src="../images/new_weather_icons/<%= currently.icon %>.png"/>
+					<p class="txt-center"><%= daily.summary %></p>
 			</div>
-			<div>
-				This will be second
+			<div class="row">
+				<div class="row small-blocks">
+					<% for(var i = 0 ; i < 4 ; i++ ){ %>
+						<div class="col-md-3">
+							<img src="../images/new_weather_icons/<%= daily.data[i].icon %>.png"/>
+							<p><%= daily.data[i].temperatureMin %>&#8451; to <%= daily.data[i].temperatureMax %>&#8451;</p>
+						</div>
+					<% } %>
+				</div>
+				<div class="row"></div>
 			</div>
 		</div>
 	</script>
