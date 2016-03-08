@@ -1,9 +1,7 @@
 function getLocationObject(){
 	var browser = window.app.browser;
 	var d = $.Deferred();
-	browser.setLocalStorage("india" , " is great")
 	var location = browser.getLocalStorage('location');
-	var india = browser.getLocalStorage('india');
 		if(typeof location == "string"){
 			d.resolve(JSON.parse(location));
 		}else{
