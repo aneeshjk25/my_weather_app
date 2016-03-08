@@ -6,7 +6,6 @@
 	}
 	function getReverseGeoCode(lat,long){
 		var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long+'&key='+ this.google_key;
-		console.log(url);
 		return $.when($.get(url));
 	}
 	function getTemplate(template){

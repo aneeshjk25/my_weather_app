@@ -8,6 +8,8 @@
 			 	if(response.currently){
 					browser.setIcon('images/new_weather_icons/' + response.currently.icon + '.png');
 					browser.setTitle(response.currently.summary);
+					browser.setBadgeText(response.currently.temperature);
+					browser.setBadgeBackgroundColor('#00539f');
 			 	}
 			 });
 		},0.1);

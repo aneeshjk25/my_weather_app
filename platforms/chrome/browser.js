@@ -39,6 +39,13 @@
 	}
 	// end local storage 
 	// 
+	function setBadgeBackgroundColor(color){
+		chrome.browserAction.setBadgeBackgroundColor({ color : color });
+	}
+	function setBadgeText(text){
+		// since we will be only showing temparate , restrict it to integer value
+		chrome.browserAction.setBadgeText({ text : parseInt(text).toString() });
+	}
 	app.browser = {
 		name : 'chrome',
 		setEvent : setEvent,
@@ -49,6 +56,8 @@
 		getLocation : getLocation,
 		processCoords: processCoords,
 		getLocalStorage : getLocalStorage,
-		setLocalStorage : setLocalStorage
+		setLocalStorage : setLocalStorage,
+		setBadgeText	:setBadgeText,
+		setBadgeBackgroundColor : setBadgeBackgroundColor
 	};
 })(window);
