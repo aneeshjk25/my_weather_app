@@ -37,8 +37,8 @@ gulp.task('build-chrome-extension',function(){
 		copy('vendor/**/*.*','build/chrome/vendor'),
 		//copy('html/*.html','build/chrome/html')
 		gulp.src('html/index.html').pipe(htmlreplace({ js : ['../vendor/jquery/jquery-1.12.1.js',
-			'../vendor/underscore/underscore.js', '../js/browser.js' , '../js/services.js',
-			'../js/location.js','../js/popup.js']}))
+			'../vendor/underscore/underscore.js','../vendor/moment/moment.js', '../js/browser.js' , 
+			'../js/services.js','../js/facade.js','../js/location.js','../js/popup.js']}))
 			.pipe(gulp.dest('build/chrome/html'))
 		);
 });

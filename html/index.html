@@ -6,7 +6,7 @@
 	<script type="text/template" id="template">
 		<div class="container">
 			<div class="row up half-height">
-					<h1 class="txt-center" ><%= currently.temperature %>&#8451;</h1>
+					<h1 class="txt-center" ><%= currently.temperature %>&#8451;    <span><%= currently.summary %></span></h1>
 					<img class="center-image" src="../images/new_weather_icons/<%= currently.icon %>.png"/>
 					<p class="txt-center"><%= daily.summary %></p>
 			</div>
@@ -14,13 +14,14 @@
 				<div class="row small-blocks">
 					<% for(var i = 0 ; i < 4 ; i++ ){ %>
 						<div class="col-md-3">
-							<img src="../images/new_weather_icons/<%= daily.data[i].icon %>.png"/>
-							<p><%= daily.data[i].temperatureMin %>&#8451; to <%= daily.data[i].temperatureMax %>&#8451;</p>
+							<img class="center-image" src="../images/new_weather_icons/<%= daily.data[i].icon %>.png"/>
+							<p class="txt-center"><%= moment.unix(daily.data[i].time).format('ddd') %></p>
+							<p class="small-txt txt-center"><%= daily.data[i].temperatureMin %>&#8451;/<%= daily.data[i].temperatureMax %>&#8451;<br/></p>
 						</div>
 					<% } %>
 				</div>
-				<div class="row"></div>
 			</div>
+			<div class="row footer"><p class="txt-center"><%= location_name %></p></div>
 		</div>
 	</script>
 	<!-- build:js -->
