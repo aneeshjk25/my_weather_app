@@ -2,6 +2,7 @@
 (function(window){
 	var app = window.app = window.app || {};
 
+	// set alarm
 	function setEvent(callback,interval){
 		interval = interval || 1 ;
 		var id = setInterval(callback, interval * 1000 * 60  );
@@ -30,9 +31,11 @@
 	function getLocation(callback){
 		return navigator.geolocation.getCurrentPosition(callback);
 	}
+	//save cords to local storage
 	function processCoords(location){
 		self.port.emit('location',location);
 	}
+	//api
 	app.browser = {
 		name : 'firefox',
 		setEvent : setEvent,

@@ -1,3 +1,5 @@
+//returns location promise which when resolved gives the location of user .
+//For reason for this being written as promise see firefox version of this file
 function getLocationObject(){
 	var browser = window.app.browser;
 	var d = $.Deferred();

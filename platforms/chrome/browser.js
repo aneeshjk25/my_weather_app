@@ -1,6 +1,7 @@
 // browser specific codes and calls
 (function(window){
-	var app = window.app = window.app || {};
+	var app = window.app = window.app || {}; 
+	// set alarms
 	function setEvent(callback,interval){
 		interval = interval || 1 ;
 		chrome.alarms.create('periodicWeather',{
@@ -26,6 +27,7 @@
 	function getLocation(callback){
 		return navigator.geolocation.getCurrentPosition(callback);
 	}
+	// save users location to local storage
 	function processCoords(location){
 		setLocalStorage('location',JSON.stringify(location));
 	}
@@ -46,6 +48,8 @@
 		// since we will be only showing temparate , restrict it to integer value
 		chrome.browserAction.setBadgeText({ text : parseInt(text).toString() });
 	}
+
+	//api
 	app.browser = {
 		name : 'chrome',
 		setEvent : setEvent,
